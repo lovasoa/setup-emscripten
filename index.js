@@ -11,7 +11,7 @@ async function run(version) {
 
   await exec.exec(emsdk_bin, ["install", version]);
   await exec.exec(emsdk_bin, ["activate", version]);
-  await exec.exec(path.join(toolRoot, 'emsdk-env.sh'));
+  await exec.exec(path.join(toolRoot, 'emsdk_env.sh'));
 }
 
 try {
