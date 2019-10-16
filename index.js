@@ -11,7 +11,18 @@ async function run(version) {
 
   await exec.exec(emsdk_bin, ["install", version]);
   await exec.exec(emsdk_bin, ["activate", version]);
-  await exec.exec(path.join(toolRoot, 'emsdk_env.sh'));
+  let env_stdout = "";
+  await exec.exec(path.join(toolRoot, 'emsdk_env.sh'), [], {
+    listeners: {
+      stdout: data => env_stdout += data.toString()
+    }
+  });
+  console.log(env_stdout);
+  env_stdout.match(/(?<=(PATH \+= )).*/g).forEach(p => core.addPath(p))
+  env_stdout.match(/\w+ = .*/g).forEach(line => {
+    let [varName, varVal] = line.split(" = ");
+    core.exportVariable(varName, varVal);
+  })
 }
 
 try {
