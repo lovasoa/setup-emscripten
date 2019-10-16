@@ -17,7 +17,6 @@ async function run(version) {
       stdout: data => env_stdout += data.toString()
     }
   });
-  console.log(env_stdout);
   env_stdout.match(/(?<=(PATH \+= )).*/g).forEach(p => core.addPath(p))
   env_stdout.match(/\w+ = .*/g).forEach(line => {
     let [varName, varVal] = line.split(" = ");
