@@ -1,10 +1,14 @@
 name: 'Setup Emscripten'
 description: 'Download emscripten, install it and add it to the PATH'
+author: '@lovasoa'
 inputs:
-  emscripten-version:  # id of input
+  emscripten-version:
     description: 'Version of emscripten to install'
     required: false
     default: 'latest'
+branding:
+  icon: 'zap'
+  color: 'green'
 runs:
   using: 'node12'
   main: 'index.js'
