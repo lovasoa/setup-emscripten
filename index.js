@@ -3,7 +3,7 @@ const core = require('@actions/core');
 const exec = require('@actions/exec');
 const tc = require('@actions/tool-cache');
 
-async function getEmscripter(version) {
+async function getEmscripten(version) {
   const emsdk_zip = await tc.downloadTool("https://github.com/emscripten-core/emsdk/archive/master.zip");
   const extPath = await tc.extractZip(emsdk_zip);
   const toolRoot = path.join(extPath, 'emsdk-master');
