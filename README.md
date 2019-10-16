@@ -15,7 +15,7 @@ in your workflows.
 
 ## Example usage
 
-````yaml
+```yaml
 uses: lovasoa/setup-emscripten@master
 with:
   emscripten-version: '1.38.47'
