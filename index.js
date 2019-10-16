@@ -18,7 +18,7 @@ try {
   // `who-to-greet` input defined in action metadata file
   const version = core.getInput('emscripten-version') || 'latest';
   console.log(`Installing emscripten (${version})...`);
-  run(version);
+  run(version).catch(e => core.setFailed(e));
 } catch (error) {
   core.setFailed(error.message);
 }
