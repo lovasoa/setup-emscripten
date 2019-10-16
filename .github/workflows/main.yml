@@ -12,4 +12,4 @@ jobs:
         with:
           emscripten-version: 1.38.47
       - name: Test emscripten
-        run: emcc tests/hello_world.c
+        run: emcc tests/hello_world.c && [ $(node a.out.js) = "hello, world!" ]
