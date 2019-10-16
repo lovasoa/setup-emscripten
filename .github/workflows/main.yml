@@ -1,0 +1,15 @@
+on: [push]
+
+jobs:
+  setup-emscripten:
+    runs-on: ubuntu-latest
+    name: Setup emscripten
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Install emscripten
+        uses: ./ # Uses an action in the root directory
+        with:
+          emscripten-version: 1.38.47
+      - name: Test emscripten
+        run: emcc tests/hello_world.c
