@@ -14,7 +14,11 @@ async function getEmscripten(version) {
 }
 
 async function run(version) {
-  const toolRoot = tc.find("emscripten", version) || await getEmscripten(version);
+  let toolRoot = tc.find("emscripten", version);
+  if (!toolRoot) {
+    console.log(`emscripten ${version} not found in the tool cache`);
+    toolRoot = await getEmscripten(version);
+  }
   const emsdk_bin = path.join(toolRoot, 'emsdk');
 
   await exec.exec(emsdk_bin, ["activate", version]);
