@@ -26,7 +26,7 @@ async function run(version) {
   });
   env_stdout.match(/(?<=(PATH \+= )).*/g).forEach(p => core.addPath(p))
   env_stdout.match(/\w+ = .*/g).forEach(line => {
-    let [varName, varVal] = line.split(" = ");
+    let [varName, varVal] = line.split(" = ", 2);
     core.exportVariable(varName, varVal);
   })
 }
