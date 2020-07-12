@@ -1,3 +1,7 @@
+# Deprecated
+
+> You probably want to use **[mymindstorm/setup-emsdk](https://github.com/mymindstorm/setup-emsdk)**, which is better maintained, instead of this action.
+
 # emscripten github action
 
 ![CI status](https://github.com/lovasoa/setup-emscripten/workflows/Test%20emscripten%20installation/badge.svg)
